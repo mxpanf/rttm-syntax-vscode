@@ -1,0 +1,28 @@
+{
+  "name": "rttm-syntax-hl",
+  "displayName": "RTTM Syntax",
+  "description": "Universal RTTM syntax highlighting support for speaker diarization, ASR, and audio annotation tasks.",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "icon": "images/icon.png",
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "rttm",
+        "aliases": ["RTTM", "rttm"],
+        "extensions": [".rttm"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rttm",
+        "scopeName": "source.rttm",
+        "path": "./syntaxes/rttm.tmLanguage.json"
+      }
+    ]
+  }
+}
