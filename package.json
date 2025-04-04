@@ -2,7 +2,7 @@
   "name": "rttm-syntax-hl",
   "displayName": "RTTM Syntax HL",
   "description": "Universal RTTM syntax highlighting support for speaker diarization, ASR, and audio annotation tasks.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "publisher": "z3r-dev",
   "homepage": "https://github.com/mxpanf/rttm-syntax-vscode",
   "author": {
