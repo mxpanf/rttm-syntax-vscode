@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.0] — 2025-04-04
+### Added
+- Support for the 11th field, an arbitrary quoted string ("...") at the end of each line
+- The backlight is like `string.quoted.double.rttm`
+- All RTTM types have been updated (`SPEAKER`, `LEXEME`, `NON-LEX`, …)
+
+### Changed
+- Improved detection of invalid strings (`invalid.illegal.rttm`), now correctly catches strings with less than 10 required fields
+- Updated grammar for a more flexible structure
+
 ## [0.1.1] - 2025-04-04
 ### Added
 - Updated grammar to support incomplete RTTM lines (accepts 1 to 10 tokens).

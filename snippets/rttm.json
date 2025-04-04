@@ -1,6 +1,62 @@
 {
-  "RTTM <NA>": {
-    "prefix": ["~n"],
+  "SPEAKER": {
+    "prefix": "speaker",
+    "body": [
+      "SPEAKER ${1:file_id} 1 ${2:onset} ${3:duration} <NA> <NA> ${4:speaker_id} <NA> <NA>"
+    ],
+    "description": "Insert SPEAKER line"
+  },
+  "LEXEME": {
+    "prefix": "lexeme",
+    "body": [
+      "LEXEME ${1:file_id} 1 ${2:onset} ${3:duration} ${4:orthography} ${5|lex,fp,frag,un-lex|} <NA> ${6:confidence} <NA>"
+    ],
+    "description": "Insert LEXEME line"
+  },
+  "NON-LEX": {
+    "prefix": "nonlex",
+    "body": [
+      "NON-LEX ${1:file_id} 1 ${2:onset} ${3:duration} <NA> ${4|laugh,breath,cough,other|} <NA> <NA> <NA>"
+    ],
+    "description": "Insert NON-LEX line"
+  },
+  "NON-SPEECH": {
+    "prefix": "nonspeech",
+    "body": [
+      "NON-SPEECH ${1:file_id} 1 ${2:onset} ${3:duration} <NA> ${4|noise,music,other|} <NA> <NA> <NA>"
+    ],
+    "description": "Insert NON-SPEECH line"
+  },
+  "SPKR-INFO": {
+    "prefix": "spkrinfo",
+    "body": [
+      "SPKR-INFO ${1:file_id} <NA> <NA> <NA> <NA> ${2|male,adult_male,female,adult_female,child,unknown|} ${3:speaker_id} <NA> <NA>"
+    ],
+    "description": "Insert SPKR-INFO line"
+  },
+  "SEGMENT": {
+    "prefix": "segment",
+    "body": [
+      "SEGMENT ${1:file_id} 1 ${2:onset} ${3:duration} <NA> ${4|eval,<NA>|} <NA> <NA> <NA>"
+    ],
+    "description": "Insert SEGMENT line"
+  },
+  "NOSCORE": {
+    "prefix": "noscore",
+    "body": [
+      "NOSCORE ${1:file_id} 1 ${2:onset} ${3:duration} <NA> <NA> <NA> <NA> <NA>"
+    ],
+    "description": "Insert NOSCORE line"
+  },
+  "NO_RT_METADATA": {
+    "prefix": "no_rt_metadata",
+    "body": [
+      "NO_RT_METADATA ${1:file_id} 1 ${2:onset} ${3:duration} <NA> <NA> <NA> <NA> <NA>"
+    ],
+    "description": "Insert NO_RT_METADATA line"
+  },
+  "<NA>": {
+    "prefix": ["~na"],
     "body": ["<NA>"],
     "description": "Insert <NA> placeholder"
   }

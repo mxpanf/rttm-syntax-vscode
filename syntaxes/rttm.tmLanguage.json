@@ -2,7 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "RTTM",
   "scopeName": "source.rttm",
-  "patterns": [{ "include": "#comments" }, { "include": "#line" }],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#types" },
+    { "include": "#invalidLine" }
+  ],
   "repository": {
     "comments": {
       "patterns": [
@@ -12,11 +16,44 @@
         }
       ]
     },
-    "line": {
+    "types": {
+      "patterns": [
+        { "include": "#speaker" },
+        { "include": "#lexeme" },
+        { "include": "#nonlex" },
+        { "include": "#nonspeech" },
+        { "include": "#spkrinfo" },
+        { "include": "#segment" },
+        { "include": "#noscore" },
+        { "include": "#no_rt_metadata" }
+      ]
+    },
+    "speaker": {
       "patterns": [
         {
-          "name": "meta.rttm",
-          "match": "^(\\S+)(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?",
+          "name": "meta.speaker.rttm",
+          "match": "^(SPEAKER)\\s+(\\S+)\\s+(\\d+)\\s+(\\d+\\.\\d+)\\s+(\\d+\\.\\d+)\\s+(<NA>)\\s+(<NA>)\\s+(\\S+)\\s+(<NA>)\\s+(<NA>)(?:\\s+\"([^\"]*)\")?$",
+          "captures": {
+            "1": { "name": "keyword.control.type.rttm" },
+            "2": { "name": "entity.name.filename.rttm" },
+            "3": { "name": "constant.numeric.channel.rttm" },
+            "4": { "name": "constant.numeric.onset.rttm" },
+            "5": { "name": "constant.numeric.duration.rttm" },
+            "6": { "name": "constant.language.na.rttm" },
+            "7": { "name": "constant.language.na.rttm" },
+            "8": { "name": "entity.name.speaker.rttm" },
+            "9": { "name": "constant.language.na.rttm" },
+            "10": { "name": "constant.language.na.rttm" },
+            "11": { "name": "string.quoted.double.rttm" }
+          }
+        }
+      ]
+    },
+    "lexeme": {
+      "patterns": [
+        {
+          "name": "meta.lexeme.rttm",
+          "match": "^(LEXEME)\\s+(\\S+)\\s+(\\d+)\\s+(\\d+\\.\\d+)\\s+(\\d+\\.\\d+)\\s+(\\S+)\\s+(\\S+)\\s+(<NA>|\\S+)\\s+(\\S+)\\s+(<NA>|[\\d\\.]+)(?:\\s+\"([^\"]*)\")?$",
           "captures": {
             "1": { "name": "keyword.control.type.rttm" },
             "2": { "name": "entity.name.filename.rttm" },
@@ -24,13 +61,144 @@
             "4": { "name": "constant.numeric.onset.rttm" },
             "5": { "name": "constant.numeric.duration.rttm" },
             "6": { "name": "string.unquoted.ortho.rttm" },
-            "7": { "name": "storage.type.subtype.rttm" },
-            "8": { "name": "entity.name.speaker.rttm" },
+            "7": { "name": "support.type.rttm" },
+            "8": { "name": "constant.language.na.rttm" },
             "9": { "name": "constant.numeric.confidence.rttm" },
-            "10": { "name": "constant.numeric.lookahead.rttm" }
+            "10": { "name": "constant.numeric.lookahead.rttm" },
+            "11": { "name": "string.quoted.double.rttm" }
           }
         }
       ]
+    },
+    "nonlex": {
+      "patterns": [
+        {
+          "name": "meta.nonlex.rttm",
+          "match": "^(NON-LEX)\\s+(\\S+)\\s+(\\d+)\\s+(\\d+\\.\\d+)\\s+(\\d+\\.\\d+)\\s+(<NA>)\\s+(\\S+)\\s+(<NA>)\\s+(<NA>|[\\d\\.]+)\\s+(<NA>|[\\d\\.]+)(?:\\s+\"([^\"]*)\")?$",
+          "captures": {
+            "1": { "name": "keyword.control.type.rttm" },
+            "2": { "name": "entity.name.filename.rttm" },
+            "3": { "name": "constant.numeric.channel.rttm" },
+            "4": { "name": "constant.numeric.onset.rttm" },
+            "5": { "name": "constant.numeric.duration.rttm" },
+            "6": { "name": "constant.language.na.rttm" },
+            "7": { "name": "support.type.rttm" },
+            "8": { "name": "constant.language.na.rttm" },
+            "9": { "name": "constant.language.na.rttm" },
+            "10": { "name": "constant.language.na.rttm" },
+            "11": { "name": "string.quoted.double.rttm" }
+          }
+        }
+      ]
+    },
+    "nonspeech": {
+      "patterns": [
+        {
+          "name": "meta.nonspeech.rttm",
+          "match": "^(NON-SPEECH)\\s+(\\S+)\\s+(\\d+)\\s+(\\d+\\.\\d+)\\s+(\\d+\\.\\d+)\\s+(<NA>)\\s+(\\S+)\\s+(<NA>)\\s+(<NA>|[\\d\\.]+)\\s+(<NA>|[\\d\\.]+)(?:\\s+\"([^\"]*)\")?$",
+          "captures": {
+            "1": { "name": "keyword.control.type.rttm" },
+            "2": { "name": "entity.name.filename.rttm" },
+            "3": { "name": "constant.numeric.channel.rttm" },
+            "4": { "name": "constant.numeric.onset.rttm" },
+            "5": { "name": "constant.numeric.duration.rttm" },
+            "6": { "name": "constant.language.na.rttm" },
+            "7": { "name": "support.type.rttm" },
+            "8": { "name": "constant.language.na.rttm" },
+            "9": { "name": "constant.language.na.rttm" },
+            "10": { "name": "constant.language.na.rttm" },
+            "11": { "name": "string.quoted.double.rttm" }
+          }
+        }
+      ]
+    },
+    "spkrinfo": {
+      "patterns": [
+        {
+          "name": "meta.spkrinfo.rttm",
+          "match": "^(SPKR-INFO)\\s+(\\S+)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)\\s+(\\S+)\\s+(\\S+)\\s+(<NA>|[\\d\\.]+)\\s+(<NA>|[\\d\\.]+)(?:\\s+\"([^\"]*)\")?$",
+          "captures": {
+            "1": { "name": "keyword.control.type.rttm" },
+            "2": { "name": "entity.name.filename.rttm" },
+            "3": { "name": "constant.language.na.rttm" },
+            "4": { "name": "constant.language.na.rttm" },
+            "5": { "name": "constant.language.na.rttm" },
+            "6": { "name": "constant.language.na.rttm" },
+            "7": { "name": "support.type.rttm" },
+            "8": { "name": "entity.name.speaker.rttm" },
+            "9": { "name": "constant.numeric.confidence.rttm" },
+            "10": { "name": "constant.numeric.lookahead.rttm" },
+            "11": { "name": "string.quoted.double.rttm" }
+          }
+        }
+      ]
+    },
+    "segment": {
+      "patterns": [
+        {
+          "name": "meta.segment.rttm",
+          "match": "^(SEGMENT)\\s+(\\S+)\\s+(\\d+)\\s+(\\d+\\.\\d+)\\s+(\\d+\\.\\d+)\\s+(<NA>)\\s+(<NA>|\\S+)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)(?:\\s+\"([^\"]*)\")?$",
+          "captures": {
+            "1": { "name": "keyword.control.type.rttm" },
+            "2": { "name": "entity.name.filename.rttm" },
+            "3": { "name": "constant.numeric.channel.rttm" },
+            "4": { "name": "constant.numeric.onset.rttm" },
+            "5": { "name": "constant.numeric.duration.rttm" },
+            "6": { "name": "constant.language.na.rttm" },
+            "7": { "name": "support.type.rttm" },
+            "8": { "name": "constant.language.na.rttm" },
+            "9": { "name": "constant.language.na.rttm" },
+            "10": { "name": "constant.language.na.rttm" },
+            "11": { "name": "string.quoted.double.rttm" }
+          }
+        }
+      ]
+    },
+    "noscore": {
+      "patterns": [
+        {
+          "name": "meta.noscore.rttm",
+          "match": "^(NOSCORE)\\s+(\\S+)\\s+(\\d+)\\s+(\\d+\\.\\d+)\\s+(\\d+\\.\\d+)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)(?:\\s+\"([^\"]*)\")?$",
+          "captures": {
+            "1": { "name": "keyword.control.type.rttm" },
+            "2": { "name": "entity.name.filename.rttm" },
+            "3": { "name": "constant.numeric.channel.rttm" },
+            "4": { "name": "constant.numeric.onset.rttm" },
+            "5": { "name": "constant.numeric.duration.rttm" },
+            "6": { "name": "constant.language.na.rttm" },
+            "7": { "name": "constant.language.na.rttm" },
+            "8": { "name": "constant.language.na.rttm" },
+            "9": { "name": "constant.language.na.rttm" },
+            "10": { "name": "constant.language.na.rttm" },
+            "11": { "name": "string.quoted.double.rttm" }
+          }
+        }
+      ]
+    },
+    "no_rt_metadata": {
+      "patterns": [
+        {
+          "name": "meta.no_rt_metadata.rttm",
+          "match": "^(NO_RT_METADATA)\\s+(\\S+)\\s+(\\d+)\\s+(\\d+\\.\\d+)\\s+(\\d+\\.\\d+)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)\\s+(<NA>)(?:\\s+\"([^\"]*)\")?$",
+          "captures": {
+            "1": { "name": "keyword.control.type.rttm" },
+            "2": { "name": "entity.name.filename.rttm" },
+            "3": { "name": "constant.numeric.channel.rttm" },
+            "4": { "name": "constant.numeric.onset.rttm" },
+            "5": { "name": "constant.numeric.duration.rttm" },
+            "6": { "name": "constant.language.na.rttm" },
+            "7": { "name": "constant.language.na.rttm" },
+            "8": { "name": "constant.language.na.rttm" },
+            "9": { "name": "constant.language.na.rttm" },
+            "10": { "name": "constant.language.na.rttm" },
+            "11": { "name": "string.quoted.double.rttm" }
+          }
+        }
+      ]
+    },
+    "invalidLine": {
+      "name": "invalid.illegal.rttm",
+      "match": "^(?!#)(SPEAKER|LEXEME|NON-LEX|NON-SPEECH|SPKR-INFO|SEGMENT|NOSCORE|NO_RT_METADATA)(?:\\s+\\S+){0,8}(?!\\s+\\S{2,})(?!\\s+\".*\")"
     }
   }
 }

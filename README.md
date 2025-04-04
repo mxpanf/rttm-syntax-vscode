@@ -5,7 +5,6 @@
 [![Version](https://img.shields.io/github/package-json/v/mxpanf/rttm-syntax-vscode)](https://marketplace.visualstudio.com/items?itemName=z3r-dev.rttm-syntax-hl)
 [![License](https://img.shields.io/github/license/mxpanf/rttm-syntax-vscode)](https://github.com/mxpanf/rttm-syntax-vscode/blob/main/LICENSE)
 
-
 ---
 
 ## Example
@@ -22,6 +21,8 @@ SPKR-INFO CMU_001 <NA> <NA> <NA> <NA> adult_male spk1 <NA> <NA>
 ```
 
 ## About RTTM
+
+[![More about RTTM](https://img.shields.io/badge/Z3R_Blog-More_about_RTTM-2962FF?style=for-the-badge&logo=hashnode&logoColor=white)](https://m.z3r.io/rttm-format-specification-and-its-application)
 
 RTTM (Rich Transcription Time Marked) is a standard text-based format used widely in audio annotation, speaker diarization, and automatic speech recognition (ASR).
 
