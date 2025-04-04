@@ -1,0 +1,15 @@
+{
+  "iconDefinitions": {
+    "rttmIcon": {
+      "iconPath": "./images/rttm-icon.svg"
+    }
+  },
+  "fileExtensions": {
+    "rttm": "rttmIcon"
+  },
+  "file": "_file",
+  "folder": "_folder",
+  "folderExpanded": "_folder_open",
+  "rootFolder": "_root_folder",
+  "rootFolderExpanded": "_root_folder_open"
+}

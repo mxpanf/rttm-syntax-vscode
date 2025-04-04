@@ -1,19 +1,57 @@
 {
   "name": "rttm-syntax-hl",
-  "displayName": "RTTM Syntax",
+  "displayName": "RTTM Syntax HL",
   "description": "Universal RTTM syntax highlighting support for speaker diarization, ASR, and audio annotation tasks.",
-  "version": "0.1.0",
-  "engines": {
-    "vscode": "^1.80.0"
+  "version": "0.1.1",
+  "publisher": "z3r-dev",
+  "homepage": "https://github.com/mxpanf/rttm-syntax-vscode",
+  "author": {
+    "name": "mxpanf"
   },
   "icon": "images/icon.png",
-  "categories": ["Programming Languages"],
+  "galleryBanner": {
+    "color": "#292d3e",
+    "theme": "dark"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "rttm",
+    "syntax",
+    "grammar",
+    "highlighting"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mxpanf/rttm-syntax-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mxpanf/rttm-syntax-vscode/issues"
+  },
+  "editor.snippetSuggestions": "inline",
+  "editor.quickSuggestions": {
+    "other": true
+  },
   "contributes": {
+    "iconThemes": [
+      {
+        "id": "rttm-file-icon",
+        "label": "RTTM File Icon Theme",
+        "path": "./icon-theme.json"
+      }
+    ],
     "languages": [
       {
         "id": "rttm",
-        "aliases": ["RTTM", "rttm"],
-        "extensions": [".rttm"],
+        "aliases": [
+          "RTTM",
+          "rttm",
+          "Rich Transcription Time Marked"
+        ],
+        "extensions": [
+          ".rttm"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -23,6 +61,15 @@
         "scopeName": "source.rttm",
         "path": "./syntaxes/rttm.tmLanguage.json"
       }
+    ],
+    "snippets": [
+      {
+        "language": "rttm",
+        "path": "./snippets/rttm.json"
+      }
     ]
+  },
+  "engines": {
+    "vscode": "^1.80.0"
   }
 }

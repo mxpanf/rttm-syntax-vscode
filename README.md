@@ -2,9 +2,15 @@
 
 > **Universal syntax highlighting support for RTTM (Rich Transcription Time Marked) files** in Visual Studio Code.
 
+[![Version](https://img.shields.io/github/package-json/v/mxpanf/rttm-syntax-vscode)](https://marketplace.visualstudio.com/items?itemName=z3r-dev.rttm-syntax-hl)
+[![License](https://img.shields.io/github/license/mxpanf/rttm-syntax-vscode)](https://github.com/mxpanf/rttm-syntax-vscode/blob/main/LICENSE)
+
+
 ---
 
-## 📄 Example
+## Example
+
+![Demo Image](./images/demo.gif)
 
 ```rttm
 SPEAKER CMU_001 1 0.00 5.24 <NA> <NA> spk1 <NA> <NA>
@@ -15,9 +21,7 @@ SPKR-INFO CMU_001 <NA> <NA> <NA> <NA> adult_male spk1 <NA> <NA>
 # End of file example
 ```
 
-![Demo Image](./images/demo.png)
-
-## 📘 About RTTM
+## About RTTM
 
 RTTM (Rich Transcription Time Marked) is a standard text-based format used widely in audio annotation, speaker diarization, and automatic speech recognition (ASR).
 
@@ -40,7 +44,7 @@ An RTTM file consists of lines with exactly **10 space-separated fields**:
 
 ---
 
-## ✨ Features
+## Features
 
 - 🎨 Full syntax highlighting for all RTTM segment types:
   - **Segment Types** (`SPEAKER`, `LEXEME`, `NON-SPEECH`, `NOSCORE`, etc.)

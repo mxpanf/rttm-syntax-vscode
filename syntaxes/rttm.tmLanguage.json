@@ -2,56 +2,33 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "RTTM",
   "scopeName": "source.rttm",
-  "patterns": [
-    { "include": "#line" },
-    { "include": "#comments" }
-  ],
+  "patterns": [{ "include": "#comments" }, { "include": "#line" }],
   "repository": {
-    "line": {
-      "patterns": [
-        {
-          "name": "meta.rttm",
-          "match": "^(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)$",
-          "captures": {
-            "1": {
-              "name": "keyword.control.type.rttm"
-            },
-            "2": {
-              "name": "entity.name.filename.rttm"
-            },
-            "3": {
-              "name": "constant.numeric.channel.rttm"
-            },
-            "4": {
-              "name": "constant.numeric.onset.rttm"
-            },
-            "5": {
-              "name": "constant.numeric.duration.rttm"
-            },
-            "6": {
-              "name": "string.unquoted.ortho.rttm"
-            },
-            "7": {
-              "name": "storage.type.subtype.rttm"
-            },
-            "8": {
-              "name": "entity.name.speaker.rttm"
-            },
-            "9": {
-              "name": "constant.numeric.confidence.rttm"
-            },
-            "10": {
-              "name": "constant.numeric.lookahead.rttm"
-            }
-          }
-        }
-      ]
-    },
     "comments": {
       "patterns": [
         {
           "name": "comment.line.number-sign.rttm",
           "match": "^#.*$"
+        }
+      ]
+    },
+    "line": {
+      "patterns": [
+        {
+          "name": "meta.rttm",
+          "match": "^(\\S+)(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?(?:\\s+(\\S+))?",
+          "captures": {
+            "1": { "name": "keyword.control.type.rttm" },
+            "2": { "name": "entity.name.filename.rttm" },
+            "3": { "name": "constant.numeric.channel.rttm" },
+            "4": { "name": "constant.numeric.onset.rttm" },
+            "5": { "name": "constant.numeric.duration.rttm" },
+            "6": { "name": "string.unquoted.ortho.rttm" },
+            "7": { "name": "storage.type.subtype.rttm" },
+            "8": { "name": "entity.name.speaker.rttm" },
+            "9": { "name": "constant.numeric.confidence.rttm" },
+            "10": { "name": "constant.numeric.lookahead.rttm" }
+          }
         }
       ]
     }
